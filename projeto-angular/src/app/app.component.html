@@ -2,16 +2,13 @@
     <h1>{{ title }}</h1>
     <p>Total de tarefas: {{ totalTasks }}</p>
 
-    <!-- Campo para adicionar nova tarefa -->
     <input [(ngModel)]="nomeTarefa" placeholder="Nome da tarefa" />
-    <button (click)="adicionarTarefa()" [disabled]="!nomeTarefa">Adicionar</button>
+    <button (click)="adicionarTarefa()" [disabled]="!nomeTarefa">Adiciona</button>
 
-    <!-- Botão para alternar visibilidade da lista de tarefas -->
     <button (click)="alternarVisibilidade()">
         {{ mostrarTarefas ? 'Ocultar' : 'Mostrar' }} Tarefas
     </button>
 
-    <!-- Lista de tarefas -->
     <div *ngIf="mostrarTarefas">
         <ul>
             <li *ngFor="let tarefa of tarefas" [ngClass]="{ 'tarefa-concluida': tarefa.concluida }"
